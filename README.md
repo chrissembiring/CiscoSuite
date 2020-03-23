@@ -1,15 +1,18 @@
-# CiscoSSH
+# CiscoSuite
+A collection of scripts to automate all things Cisco.
+
+## CiscoSSH
 Example for backing up Cisco router configuration files by SSH connection.
 
 Before using this file, ensure the paramiko library is installed in your machine. Use "pip install paramiko" in your shell window in case paramiko has not been installed.
 
-- multibackup.py
+### multibackup.py
 The multibackup.py script is used to pull the routers' running-config file and save them as separate .cfg files (or, if preferred, .txt files). Edit the routers' information and list to suit your existing infrastructure.
 
-- multiconfig.py
+### multiconfig.py
 The reverse of the earlier script, multiconfig.py is used to read the generated .cfg (or .txt) files line by line and send them as a command through SSH connection.
 
-# ciscotelnet
+## ciscotelnet
 Python3 scripts to save multiple Cisco routers' configurations and upload config from a text file.
 
 ### telnetread.py
