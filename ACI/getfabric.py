@@ -1,9 +1,10 @@
 import json
 import requests
+from APICClass import APIC
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
-APIC_SITEA = "https://10.54.86.4/"
-APIC_SITEB = "https://10.54.86.7/"
+APIC_SITEA = APIC("https://10.54.86.4/", "Site A APIC-1", "admin", "CDALAB!0")
+APIC_SITEB = APIC("https://10.54.86.7/", "SITE B APIC-1", "admin", "CDALAB!0")
 
 ACI_SITES = [APIC_SITEA, APIC_SITEB]
 
@@ -16,7 +17,7 @@ for ACI_SITE in ACI_SITES:
 
         try:
             response = requests.post(
-                url=ACI_SITE+"/api/aaaLogin.json",
+                url=ACI_SITE.apicIPaddress+"/api/aaaLogin.json",
                 headers={
                     "Content-Type": "application/json; charset=utf-8",
                 },
@@ -24,8 +25,8 @@ for ACI_SITE in ACI_SITES:
                     {
                         "aaaUser": {
                             "attributes": {
-                                "name": "admin",
-                                "pwd": "CDALAB!0"
+                                "name": ACI_SITE.apicUser,
+                                "pwd": ACI_SITE.apicPass
                             }
                         }
                     }
@@ -50,7 +51,7 @@ for ACI_SITE in ACI_SITES:
         # Get ACI Tenants
 
         token = apic_login()
-        url=ACI_SITE+"/api/node/class/fvTenant.json"
+        url=ACI_SITE.apicIPaddress+"/api/node/class/fvTenant.json"
         print('GET request resource: ', url)
 
         try:
@@ -75,7 +76,7 @@ for ACI_SITE in ACI_SITES:
         # Get ACI devices
 
         token = apic_login()
-        url=ACI_SITE+"/api/node/class/topology/pod-1/topSystem.json"
+        url=ACI_SITE.apicIPaddress+"/api/node/class/topology/pod-1/topSystem.json"
         print('GET request resource: ', url)
 
         try:
@@ -98,7 +99,7 @@ for ACI_SITE in ACI_SITES:
     # Suppress credential warning for this exercise:
     requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-    print('=====LIST OF TENANTS=====')
+    print("=====LIST OF TENANTS OF " + ACI_SITE.apicHostName + "=====")
     get_tenants()
-    print('=====LIST OF DEVICES=====')
+    print("=====LIST OF DEVICES OF " + ACI_SITE.apicHostName + "=====")
     get_devices()
