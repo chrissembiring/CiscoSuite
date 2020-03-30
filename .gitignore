@@ -4,6 +4,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# API tokens and keys
+api-token.py
+
 # C extensions
 *.so
 

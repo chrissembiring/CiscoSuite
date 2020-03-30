@@ -12,6 +12,7 @@ todayStr = str(todayDate.year) + '-' + str(todayDate.month) + '-' + str(todayDat
 PORT_NUMBER = 22
 
 # Define router objects to which SSH connection are to be established
+## Class parameters are (IP address, hostname, EXEC username, EXEC password)
 SR1 = Router('10.54.86.103', 'SR-CDA-1', 'admin', 'CDALAB!0')
 SR2 = Router('10.54.86.84', 'SR-CDA-2', 'admin', 'CDALAB!0')
 AGG1 = Router('10.54.86.100', 'AGG-CDA-1', 'admin', 'CDALAB!0')

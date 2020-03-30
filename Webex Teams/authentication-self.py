@@ -2,7 +2,7 @@ import requests
 import json
 
 # Insert Webex API as distributed by Webex Developers. Changes once every 12 hours.
-access_token = ''
+access_token = api-token.api_token
 
 url = 'https://api.ciscospark.com/v1/people/me'
 
