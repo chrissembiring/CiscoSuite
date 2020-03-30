@@ -11,7 +11,7 @@ headers = {
 }
 
 params = {
-    "max" : 1
+    "max" : 100
 }
 
 res = requests.get(url, headers=headers, params=params)
