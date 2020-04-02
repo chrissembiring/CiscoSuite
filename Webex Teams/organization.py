@@ -1,8 +1,8 @@
 import requests
 import json
-import api-token
+import apitoken
 
-access_token = api-token.api_token
+access_token = apitoken.api_token
 
 url = 'https://api.ciscospark.com/v1/people'
 headers = {

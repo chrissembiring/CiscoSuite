@@ -1,8 +1,9 @@
 import requests
 import json
+import apitoken
 
 # Insert Webex API as distributed by Webex Developers. Changes once every 12 hours.
-access_token = api-token.api_token
+access_token = apitoken.api_token
 
 url = 'https://api.ciscospark.com/v1/memberships'
 headers = {
