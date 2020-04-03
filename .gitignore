@@ -6,6 +6,7 @@ __pycache__/
 
 # API tokens and keys
 apitoken.py
+merakiapi.py
 
 # C extensions
 *.so
